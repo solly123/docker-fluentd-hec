@@ -6,6 +6,7 @@ ARG HTTPS_PROXY
 
 # skip runtime bundler installation
 ENV FLUENTD_DISABLE_BUNDLER_INJECTION 1
+ENV FLUENT_CONF
 
 RUN set -e \
  && export http_proxy=$HTTPS_PROXY \
