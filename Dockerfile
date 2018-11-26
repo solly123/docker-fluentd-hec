@@ -11,7 +11,7 @@ RUN set -e \
  && export http_proxy=$(HTTPS_PROXY) \
  && apt-get update \
  && apt-get upgrade -y \
- && apt-get install -y --no-install-recommends libjemalloc1 jq \
+ && apt-get install -y --no-install-recommends libjemalloc1 \
  && buildDeps="make gcc wget g++" \
  && apt-get install -y --no-install-recommends $buildDeps \
  && gem install -N fluentd -v "1.2.0" \
