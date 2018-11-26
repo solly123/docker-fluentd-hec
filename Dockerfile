@@ -2,7 +2,7 @@ FROM ruby:2.5.1-slim
 
 LABEL maintainer="Gimi Liang <zliang@splunk.com>"
 
-ENV HTTPS_PROXY proxy
+ARG HTTPS_PROXY proxy
 
 # skip runtime bundler installation
 ENV FLUENTD_DISABLE_BUNDLER_INJECTION 1
