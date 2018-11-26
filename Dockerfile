@@ -9,9 +9,10 @@ ENV FLUENTD_DISABLE_BUNDLER_INJECTION 1
 
 RUN set -e \
  && export http_proxy=$(HTTPS_PROXY) \
+ && add-apt-repository main
  && apt-get update \
  && apt-get upgrade -y \
- && apt-get install -y --no-install-recommends libjemalloc1 \
+ && apt-get install -y --no-install-recommends libjemalloc1 jq \
  && buildDeps="make gcc wget g++" \
  && apt-get install -y --no-install-recommends $buildDeps \
  && gem install -N fluentd -v "1.2.0" \
