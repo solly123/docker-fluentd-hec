@@ -2,10 +2,17 @@ FROM ruby:2.5.1-slim
 
 LABEL maintainer="Gimi Liang <zliang@splunk.com>"
 
+ENV proxy_protocol
+ENV proxy_username
+ENV proxy_password
+ENV proxy_domain
+ENV proxy_port
+
 # skip runtime bundler installation
 ENV FLUENTD_DISABLE_BUNDLER_INJECTION 1
 
 RUN set -e \
+ && export http_proxy=$(proxy_protocol)://$(proxy_username):$(proxy_password)@$(proxy_domain):$(proxy_port)
  && apt-get update \
  && apt-get upgrade -y \
  && apt-get install -y --no-install-recommends libjemalloc1 jq \
