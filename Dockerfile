@@ -9,7 +9,7 @@ ENV FLUENTD_DISABLE_BUNDLER_INJECTION 1
 
 RUN set -e \
  && export http_proxy=$(HTTPS_PROXY) \
- && add-apt-repository main
+ && add-apt-repository main \
  && apt-get update \
  && apt-get upgrade -y \
  && apt-get install -y --no-install-recommends libjemalloc1 jq \
