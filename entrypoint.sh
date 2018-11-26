@@ -2,4 +2,4 @@
 
 set -e
 
-exec fluentd "$@"
+exec fluentd -c $FLUENT_CONF
