@@ -22,7 +22,7 @@ RUN set -e \
  && gem install -N fluent-plugin-splunk-hec -v "1.0.1" \
  && gem install -N oj -v "3.5.1" \
  && dpkgArch="$(dpkg --print-architecture | awk -F- '{ print $NF }')" \
- && wget -O /usr/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.1/dumb-init_1.2.1_$dpkgArch \
+ && wget -e use_proxy=yes -e http_proxy=$HTTPS_PROXY -e https_proxy=$HTTPS_PROXY -O /usr/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.1/dumb-init_1.2.1_$dpkgArch \
  && chmod +x /usr/bin/dumb-init \
  && apt-get purge -y --auto-remove \
                   -o APT::AutoRemove::RecommendsImportant=false \
